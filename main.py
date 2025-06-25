@@ -3,6 +3,7 @@ import requests
 import time
 import os
 from sqlalchemy import create_engine, text
+load_dotenv()
 
 # Database connection
 DB_URL = os.getenv("DB_URL")
