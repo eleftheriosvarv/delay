@@ -4,7 +4,9 @@ import time
 import os
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
+
 load_dotenv()
+
 # Database connection
 DB_URL = os.getenv("DB_URL")
 engine = create_engine(DB_URL)
@@ -16,9 +18,12 @@ route_code = "2085"
 
 results = []
 
-# Set request headers
+# Spoofed headers to bypass API blocking
 headers = {
-    "User-Agent": "Mozilla/5.0"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+    "Accept": "application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Referer": "https://telematics.oasa.gr/",
+    "Accept-Language": "en-US,en;q=0.9"
 }
 
 # Current time rounded to minute
