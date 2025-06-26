@@ -12,7 +12,7 @@ DB_URL = os.getenv("DB_URL")
 engine = create_engine(DB_URL)
 
 # Read stopcodes from CSV
-df_stops = pd.read_csv("a7_2085_stops.csv")
+df_stops = pd.read_csv("/root/delay/a7_2085_stops.csv")
 df_unique = df_stops[['StopCode']].drop_duplicates()
 route_code = "2085"
 
