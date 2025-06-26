@@ -53,7 +53,7 @@ for _, row in df_unique.iterrows():
 
                     query = text("""
                         SELECT timestamp, btime2
-                        FROM oasa_arrivals
+                        FROM oasa_table
                         WHERE veh_code = :veh AND stopcode = :stop
                         ORDER BY timestamp DESC
                         LIMIT 1;
@@ -83,5 +83,5 @@ for _, row in df_unique.iterrows():
 
 # Save results to PostgreSQL
 df_results = pd.DataFrame(results)
-df_results.to_sql("oasa_arrivals", engine, if_exists="append", index=False)
+df_results.to_sql("oasa_table", engine, if_exists="append", index=False)
 print(f"✅ Saved {len(df_results)} records.")
